@@ -17,7 +17,7 @@ The user has a direction. Your job is to find the holes in it.
 
 Read any provided context — files referenced with @, inline descriptions, existing SPEC.md files.
 
-**If an existing SPEC.md is found**, use AskUserQuestionTool to ask: "I see an existing SPEC.md — revise it or start fresh?"
+**If an existing SPEC.md is found**, use AskUserQuestion to ask: "I see an existing SPEC.md — revise it or start fresh?"
 
 **Adapt your starting depth:**
 - **One-sentence idea**: Start from scratch. You know almost nothing.
@@ -28,7 +28,7 @@ Acknowledge what you understand in 2-3 sentences, then move to mode selection.
 
 ## Step 2: Mode Selection
 
-Your first AskUserQuestionTool call is always mode selection:
+Your first AskUserQuestion call is always mode selection:
 
 | Mode | Rounds | Best for |
 |------|--------|----------|
@@ -39,7 +39,7 @@ Default to recommending Quick. The user opts into depth.
 
 ## Step 3: Interview
 
-Use **AskUserQuestionTool exclusively** for all questions. Never ask questions as plain text.
+Use **AskUserQuestion exclusively** for all questions. Never ask questions as plain text.
 
 ### Batching — Adaptive
 
@@ -72,7 +72,7 @@ If the answer is obvious (e.g., "Should the system handle errors?" — of course
 
 ### Challenger Option — Required
 
-Every AskUserQuestionTool call must include at least one option that **challenges the user's likely assumption** or suggests an approach they probably haven't considered. This is what separates validation from confirmation bias.
+Every AskUserQuestion call must include at least one option that **challenges the user's likely assumption** or suggests an approach they probably haven't considered. This is what separates validation from confirmation bias.
 
 The challenger option doesn't have to be contrarian for its own sake — it should represent a genuinely different approach that an experienced practitioner might advocate for.
 
@@ -88,7 +88,7 @@ At least once during the interview (ideally in the first few rounds), ask whethe
 
 ### Scope Creep Detection
 
-If the user's answers reveal the feature is growing significantly beyond the initial description, pause and flag it via AskUserQuestionTool:
+If the user's answers reveal the feature is growing significantly beyond the initial description, pause and flag it via AskUserQuestion:
 - "This is expanding beyond the original scope. Should we narrow to an MVP, or capture the full vision?"
 - Present the tradeoff: smaller scope = faster execution but may miss important pieces; full scope = comprehensive but may be too large for a single session.
 
@@ -118,7 +118,7 @@ When the user doesn't know the answer to something important: **don't push for a
 **Quick mode**: Aim for 8-12 rounds. Flag anything you couldn't reach as Open Questions.
 **Deep mode**: Continue until coverage is thorough and returns are diminishing. No artificial cap.
 
-In both modes, end with a final AskUserQuestionTool: "I think I have a solid picture. Before I write the spec, is there anything else you're worried about or want to make sure we capture?"
+In both modes, end with a final AskUserQuestion: "I think I have a solid picture. Before I write the spec, is there anything else you're worried about or want to make sure we capture?"
 
 ### Early Termination
 
