@@ -4,9 +4,38 @@
     "name": "Tommy Flaim"
   },
   "metadata": {
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Claude Code skills for product management, workflow automation, and AI-assisted development",
     "homepage": "https://github.com/tflaim/claude-skills"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "deslop",
+      "version": "1.0.0",
+      "description": "Strip AI writing patterns and inject human voice",
+      "author": "Tommy Flaim",
+      "source": "skills/deslop"
+    },
+    {
+      "name": "explain-system",
+      "version": "1.0.0",
+      "description": "Build mental models of technical systems you can reason with",
+      "author": "Tommy Flaim",
+      "source": "skills/explain-system"
+    },
+    {
+      "name": "expert-review",
+      "version": "1.0.0",
+      "description": "Summon a domain expert persona for critical feedback",
+      "author": "Tommy Flaim",
+      "source": "skills/expert-review"
+    },
+    {
+      "name": "remember",
+      "version": "1.0.0",
+      "description": "Route session learnings to the right memory tier",
+      "author": "Tommy Flaim",
+      "source": "skills/remember"
+    }
+  ]
 }
