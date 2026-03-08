@@ -1,0 +1,12 @@
+{
+  "name": "tflaim-claude-skills",
+  "owner": {
+    "name": "Tommy Flaim"
+  },
+  "metadata": {
+    "version": "0.1.0",
+    "description": "Claude Code skills for product management, workflow automation, and AI-assisted development",
+    "homepage": "https://github.com/tflaim/claude-skills"
+  },
+  "plugins": []
+}
