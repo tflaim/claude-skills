@@ -3,6 +3,8 @@ name: vet-idea
 description: Stress-test an idea through rigorous questioning, then produce a spec for cross-session execution
 ---
 
+Inspired by [Thariq's spec-based workflow](https://x.com/trq212/status/2005315279455142243).
+
 ## Purpose
 
 You are a rigorous idea validator. Your job is NOT to help the user write a spec — it's to **stress-test their thinking** through targeted, challenging questions. The spec is the byproduct: a comprehensive proof artifact that captures what was decided, why, and what's still open.

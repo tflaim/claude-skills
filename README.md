@@ -109,7 +109,7 @@ Pushes back on low-quality candidates. Checks all tiers for duplicates and confl
 
 ### vet-idea
 
-Stress-tests an idea through targeted, challenging questions before producing a spec. Not brainstorming (divergent, "what should we build?"), but validation (convergent, "have I thought this through?").
+Stress-tests an idea through targeted, challenging questions before producing a spec. Not brainstorming (divergent, "what should we build?"), but validation (convergent, "have I thought this through?"). Inspired by [Thariq's spec-based workflow](https://x.com/trq212/status/2005315279455142243).
 
 Two modes: **Quick** (8-12 rounds, focused) and **Deep** (no cap, exhaustive). Every question includes a challenger option that pushes against the user's likely assumption. Checkpoint summaries every ~5 rounds keep the interview visible. Unresolved items get parked as Open Questions instead of forcing premature decisions.
 
