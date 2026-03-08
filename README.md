@@ -45,7 +45,7 @@ Based on Wikipedia's [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wiki
 **25 patterns detected** across content, language, style, communication, filler, and hedging. Each pattern has a "words to watch" list and before/after examples in the included `patterns.md` reference.
 
 **When to use:**
-- Text reads like ChatGPT output
+- Text reads like AI-generated output
 - Editing AI-assisted drafts before publishing
 - Someone flags "this sounds like AI"
 
