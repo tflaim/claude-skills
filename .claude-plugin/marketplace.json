@@ -36,6 +36,13 @@
       "description": "Route session learnings to the right memory tier",
       "author": "Tommy Flaim",
       "source": "skills/remember"
+    },
+    {
+      "name": "vet-idea",
+      "version": "1.0.0",
+      "description": "Stress-test ideas through rigorous questioning, then produce execution-ready specs",
+      "author": "Tommy Flaim",
+      "source": "skills/vet-idea"
     }
   ]
 }

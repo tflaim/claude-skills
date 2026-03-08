@@ -33,6 +33,7 @@ cp -r skills/deslop ~/.claude/skills/deslop
 | [explain-system](#explain-system) | Builds mental models of technical systems you can reason with | 290 |
 | [expert-review](#expert-review) | Summons a domain expert persona for genuinely critical feedback | 95 |
 | [remember](#remember) | Routes session learnings to the right memory tier so they persist | 303 |
+| [vet-idea](#vet-idea) | Stress-tests ideas through rigorous questioning, produces execution-ready specs | 215 |
 
 ---
 
@@ -103,6 +104,21 @@ Routes to three tiers:
 | Personal knowledge (`~/.claude/projects/*/memory/`) | Your accumulated understanding | "Auth flow starts in src/auth/handler.ts" |
 
 Pushes back on low-quality candidates. Checks all tiers for duplicates and conflicts before adding anything. Manages capacity limits (MEMORY.md hard-capped at 200 visible lines).
+
+---
+
+### vet-idea
+
+Stress-tests an idea through targeted, challenging questions before producing a spec. Not brainstorming (divergent, "what should we build?"), but validation (convergent, "have I thought this through?").
+
+Two modes: **Quick** (8-12 rounds, focused) and **Deep** (no cap, exhaustive). Every question includes a challenger option that pushes against the user's likely assumption. Checkpoint summaries every ~5 rounds keep the interview visible. Unresolved items get parked as Open Questions instead of forcing premature decisions.
+
+**Output:** A `SPEC.md` with inline decision reasoning (not a separate decision log), execution guidance, and context file references. Designed to be handed to a fresh Claude Code session for implementation.
+
+**When to use:**
+- You have an idea and want to find the holes before building
+- Converting a rough concept into a spec another session can execute
+- Validating scope and tradeoffs before committing to implementation
 
 ---
 
