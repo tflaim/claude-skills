@@ -1,6 +1,11 @@
 ---
 name: vet-idea
-description: Stress-test an idea through rigorous questioning, then produce a spec for cross-session execution
+description: >-
+  Use when the user wants to stress-test an idea before committing to building it.
+  NOT for brainstorming (use brainstorming for divergent exploration).
+  NOT for reviewing finished work (use expert-review).
+  Triggers: "vet this idea", "have I thought this through", "validate my approach",
+  "stress-test this", "poke holes in this", "is this worth building".
 ---
 
 Inspired by [Thariq's spec-based workflow](https://x.com/trq212/status/2005315279455142243).
@@ -125,6 +130,8 @@ In both modes, end with a final AskUserQuestion: "I think I have a solid picture
 ### Early Termination
 
 If the user says "just write the spec" before you think you have enough: **comply immediately**. Write the best spec you can with what you have, but add a prominent `## Under-Explored Areas` section listing what wasn't covered and why it matters.
+
+**Confidence calibration**: Match the spec's decisiveness to the input's detail level. When input is minimal (one sentence, vague problem statement), do NOT invent specific technologies, numbers, or constraints and present them as hard requirements. Instead: (1) present technology choices as recommendations with alternatives, not decided requirements, (2) flag invented numbers (thresholds, timings, limits) as "suggested" or "starting point" values, and (3) move decisions that lack input grounding to Open Questions rather than hardcoding them in Requirements. The spec should make the reader aware of what is grounded in the user's input vs. what the spec author assumed.
 
 ## Step 4: Write the Spec
 

@@ -32,7 +32,7 @@ Never produce a 3000-token explanation when the user only needed one subsystem.
 
 If the target is a concept, process, or documentation rather than a specific codebase:
 - **Concept** ("how do we handle agent handoffs"): check Confluence, CLAUDE.md memory files, and Jira first. Skip the file exploration checklist. Map the concept through documentation and conversation.
-- **Confluence page URL or Jira epic**: use Atlassian MCP tools to retrieve the content, then apply the same analysis framework.
+- **Documentation URL or project tracker epic**: use available MCP tools or web fetch to retrieve the content, then apply the same analysis framework.
 - **Multi-repo system**: identify all repos in Phase 1, explore one at a time, connect them in the Integration Map.
 
 For non-code targets, adapt downstream phases: depth limits don't apply (there are no import chains), complexity assessment maps to breadth of documentation, and confidence signaling shifts from file:line references to source attribution ("per the Confluence design doc" / "based on the Jira epic description" / "inferred, not documented anywhere I found").
@@ -43,7 +43,7 @@ For non-code targets, adapt downstream phases: depth limits don't apply (there a
 
 Before exploring from scratch, check:
 - Project memory files and CLAUDE.md for prior briefs
-- Any `/familiarize-agent` output already captured
+- Any prior system briefs or architecture docs already captured
 - Earlier context in the current conversation
 
 Only explore what you don't already know.
@@ -275,7 +275,7 @@ Only if the user asks: "quiz me", "test my understanding", or "let's do active l
 ## Output Quality Standards
 
 **Do:**
-- Reference specific files and line numbers from the actual codebase
+- Reference specific files and line numbers in `filename.ext:lineN` format (e.g., `handler.ts:15`). Always include the filename, even for single-file systems
 - Tailor depth to the user's stated motivation
 - Signal confidence level on every claim
 - Define domain terms inline, on first use, in the section where they matter

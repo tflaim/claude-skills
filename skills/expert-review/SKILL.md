@@ -1,6 +1,10 @@
 ---
 name: expert-review
-description: Invoke a domain expert persona to critically review specs, code, architecture, copy, plans, or prompts. Supports user-specified, auto-selected, or multi-persona modes.
+description: >-
+  Invoke a domain expert persona to critically review specs, code, architecture, copy,
+  plans, or prompts. Supports user-specified, auto-selected, or multi-persona modes.
+  Triggers: "expert review", "review this as a [role]", "get a second opinion",
+  "critique this", "what would an expert think".
 ---
 
 # Expert Review
@@ -58,7 +62,7 @@ Don't follow a rigid template — let the review flow naturally like a real expe
 3. **What doesn't work** — The core of the review. For each issue:
    - What's wrong
    - Why it matters (consequence, not just opinion)
-   - What you'd do instead (concrete, not hand-wavy)
+   - What you'd do instead (concrete, not hand-wavy — never end an item with a question or observation. Always close with a specific, actionable recommendation. "Here's what I'd do" not "here are some questions to consider.")
 
 4. **What's missing** — Things the author didn't think of that the expert would know to include. Blind spots, edge cases, industry context.
 

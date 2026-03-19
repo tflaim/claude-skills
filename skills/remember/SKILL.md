@@ -1,5 +1,4 @@
 ---
-name: remember
 description: Capture and maintain learnings across memory tiers with session review and critical evaluation
 argument-hint: [optional: learning to remember]
 ---
@@ -43,7 +42,7 @@ What kind of learning is this?
 └─ Knowledge you personally accumulated about this codebase?
    → ~/.claude/projects/<project>/memory/ (Personal Knowledge)
    "Auth flow starts in src/auth/handler.ts",
-   "Orchestrator test endpoint is /v1/airo-care-orchestrator",
+   "Auth service endpoint is /v1/auth/verify",
    architecture patterns, debugging discoveries
 ```
 
@@ -123,7 +122,7 @@ Before accepting, ask:
 
 ### Push Back on Low-Quality Candidates
 
-Don't accept everything. Push back:
+Don't accept everything. Push back. When the user asks to remember a specific env var name, secret, or API key (e.g., "remember that X_SECRET needs to be set"), assign ❌ Skip. These belong in `.env.example` or project settings, not Claude memory. A single missing env var is a setup checklist item, not a behavioral learning.
 
 - "This seems task-specific — worth adding permanently?"
 - "This conflicts with [existing entry] — update that instead?"
@@ -214,7 +213,7 @@ Auto-memory uses MEMORY.md as an always-loaded index, with topic files for detai
 - Do NOT use it for: multi-line explanations, detailed architecture notes, lengthy entries
 
 **Topic file conventions:**
-- Name with descriptive kebab-case: `care-ai-backend.md`, `sdk-patterns.md`
+- Name with descriptive kebab-case: `api-backend.md`, `sdk-patterns.md`
 - One domain per file, organized semantically (not chronologically)
 - Check existing topic files before creating new ones — append when the topic fits
 - If a topic file exceeds ~300 lines, consider splitting by subtopic
