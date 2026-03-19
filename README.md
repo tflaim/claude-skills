@@ -2,6 +2,8 @@
 
 Skills I use daily with Claude Code. Each one solves a specific problem I kept running into: AI-generated text that sounds like a robot, system explanations that stay surface-level, reviews that pull punches, and session learnings that evaporate between conversations.
 
+All 5 original skills have been optimized using the included [skill-grinder](#skill-grinder), which runs autonomous mutation loops with binary evals and holdout validation. Results: deslop 80.8% to 100%, expert-review 92% to 100%, explain-system 92% to 100%, remember 96% to 100%, vet-idea 83.3% to 96.7%. Zero overfitting across all holdout checks.
+
 ## Installation
 
 ### Plugin marketplace (recommended)
@@ -30,10 +32,11 @@ cp -r skills/deslop ~/.claude/skills/deslop
 | Skill | What it does | Lines |
 |-------|-------------|-------|
 | [deslop](#deslop) | Strips AI writing patterns and injects human voice | 165 |
-| [explain-system](#explain-system) | Builds mental models of technical systems you can reason with | 290 |
-| [expert-review](#expert-review) | Summons a domain expert persona for genuinely critical feedback | 95 |
+| [explain-system](#explain-system) | Builds mental models of technical systems you can reason with | 289 |
+| [expert-review](#expert-review) | Summons a domain expert persona for genuinely critical feedback | 98 |
 | [remember](#remember) | Routes session learnings to the right memory tier so they persist | 303 |
-| [vet-idea](#vet-idea) | Stress-tests ideas through rigorous questioning, produces execution-ready specs | 215 |
+| [skill-grinder](#skill-grinder) | Autonomous prompt optimization via binary evals and mutation loops | 370 |
+| [vet-idea](#vet-idea) | Stress-tests ideas through rigorous questioning, produces execution-ready specs | 224 |
 
 ---
 
@@ -104,6 +107,32 @@ Routes to three tiers:
 | Personal knowledge (`~/.claude/projects/*/memory/`) | Your accumulated understanding | "Auth flow starts in src/auth/handler.ts" |
 
 Pushes back on low-quality candidates. Checks all tiers for duplicates and conflicts before adding anything. Manages capacity limits (MEMORY.md hard-capped at 200 visible lines).
+
+---
+
+### skill-grinder
+
+Autonomous mutation loop that optimizes any existing skill's prompt. Adapted from Andrej Karpathy's [autoresearch methodology](https://www.youtube.com/watch?v=LBMiNFBp0cI) (autonomous experimentation loops applied to prompt engineering instead of ML training code).
+
+The core loop: run a skill repeatedly with test inputs, score every output against binary evals, mutate one thing at a time, keep improvements, discard the rest. Stops when gains plateau or budget is hit.
+
+**Key design decisions:**
+- **At least one mechanical eval required** (grep, wc, parse, execute). LLM-only evaluation drifts toward reward hacking.
+- **Holdout inputs** (2+ inputs never seen during optimization) detect overfitting at the end.
+- **Exponential cooldown:** 3 consecutive discards = slow down, 5 = full stop with diagnosis.
+- **Prompt growth tracking:** warns at 40%+ growth from baseline to prevent "lost in the middle" degradation.
+- **Type A/B/C classification** for interactive skills: bypass the interview, grind the output quality.
+
+**Output:** Improved SKILL.md + `results.tsv` score log + `changelog.md` research log of every mutation tried.
+
+Includes `references/eval-guide.md` with examples of mechanical vs LLM-judged evals for text, visual, code, and document skills.
+
+**When to use:**
+- A skill works ~70% of the time and you want to close the gap
+- You want to systematically identify which instructions are unclear or missing
+- You want a research log that future sessions can continue from
+
+**Not for:** Creating new skills (use skill-creator). One-off eval runs (use skill-creator). Purely interactive skills with no separable output (use expert-review + manual rewrite).
 
 ---
 
