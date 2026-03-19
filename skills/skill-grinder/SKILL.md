@@ -126,6 +126,24 @@ Example: 4 evals x 5 runs = max score of 20.
 
 **Do not skip calibration.** Bad evals produce confident-looking improvements that are actually noise.
 
+### Eval revision protocol
+
+If calibration or early experiments reveal the evals are too easy or measuring the wrong thing, you may revise them. But you MUST:
+1. Log the revision rationale in the changelog (why the old evals were insufficient)
+2. Re-run the baseline with the new evals before continuing (the old baseline score is invalidated)
+3. Treat the re-run as experiment 0 in the new eval regime
+
+Changing evals without re-baselining means you're comparing scores from two different tests.
+
+### High-baseline fast path
+
+If baseline is 90%+ with a narrow failure pattern (1-2 specific inputs failing on 1-2 specific evals), skip the full loop setup:
+- Target the failure directly with one mutation
+- If it hits 100%, run holdouts immediately
+- If holdouts pass, stop. Don't burn experiments confirming what's already working.
+
+Report: "Baseline was [X]%. Single targeted fix resolved the remaining failure. Holdouts confirmed. No full loop needed."
+
 ---
 
 ## step 4: establish baseline
